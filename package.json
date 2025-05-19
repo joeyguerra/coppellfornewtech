@@ -1,0 +1,20 @@
+{
+  "name": "coppellfornewtech",
+  "version": "1.0.3",
+  "main": "index.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.mjs",
+    "start:local": "node --env-file=.env --watch server.mjs",
+    "docker-build": "./docker-build.sh",
+    "push": "node --run build && node --run docker-build && node --run k3d-deploy",
+    "build": "node server.mjs --execute",
+    "k3d-deploy": "kubectl config use-context k3d-local && kubectl apply -f charts/web/deployment.yaml -n default"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "juphjacs": "github:joeyguerra/juphjacs"
+  }
+}

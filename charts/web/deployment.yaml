@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: coppellfornewtech-website
+spec:
+  selector:
+    matchLabels:
+      app: coppellfornewtech-website
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: coppellfornewtech-website
+    spec:
+      containers:
+      - name: coppellfornewtech-website
+        image: local/coppellfornewtech-website:1.0.3
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: PORT
+          value: "8080"
+        - name: NODE_ENV
+          value: "production"
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: coppellfornewtech-website-service
+spec:
+  selector:
+    app: coppellfornewtech-website
+  ports:
+    - protocol: TCP
+      port: 8080

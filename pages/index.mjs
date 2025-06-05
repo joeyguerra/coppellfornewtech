@@ -4,7 +4,7 @@ import { Page } from 'juphjacs/src/Page.mjs'
 class IndexPage extends Page {
     constructor (rootFolder, filePath, template) {
         super(rootFolder, filePath, template)
-        this.title = "New Tech: 2025 Budget Discussion"
+        this.title = "Coppell For New Tech"
         this.layout = './pages/layouts/index.html'
         this.canonical = 'https://coppellfornewtech.org/'
         this.excerpt = `The Coppell School Board is discussing the 2025-2026 budget and considering closing New Tech High School.`

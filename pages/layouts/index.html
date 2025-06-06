@@ -120,6 +120,30 @@
             height: 40px;
             vertical-align: middle;
         }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        table th {
+            background-color: #203864;
+            color: white;
+            padding: 8px;
+            text-align: left;
+        }
+
+        table td {
+            padding: 8px;
+            border: 1px solid #ddd;
+        }
+        .logo-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #0056b3;
+        }
     </style>
 </head>
 
@@ -129,8 +153,10 @@
     <header>
         <div class="container nav">
             <div>
-                <img src="logo.png" alt="Logo" class="logo">
-                <strong style="margin-left: 0.5rem;">CoppellForNewTech.org</strong>
+                <a href="/" title="CoppellForNewTech.org" class="logo-link">
+                    <img src="logo.png" alt="Logo" class="logo">
+                    <strong style="margin-left: 0.5rem;">CoppellForNewTech.org</strong>
+                </a>
             </div>
             <nav class="nav-links">
                 <a href="/#mission">Our Story</a>

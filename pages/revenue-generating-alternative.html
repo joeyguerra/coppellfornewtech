@@ -20,7 +20,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
+                <tr id="transportation">
                     <td>1</td>
                     <td>Transportation Fees</td>
                     <td>
@@ -30,7 +30,7 @@
                     </td>
                     <td>$92,500–$185,000 (shuttles only)<br>Up to $2.4M (all riders)</td>
                 </tr>
-                <tr>
+                <tr id="ada">
                     <td>2</td>
                     <td>Optimize Average Daily Attendance (ADA)</td>
                     <td>
@@ -40,7 +40,7 @@
                     </td>
                     <td>$1,000,000+ per 1% ADA increase</td>
                 </tr>
-                <tr>
+                <tr id="open">
                     <td>3</td>
                     <td>Expand & Market Open Enrollment</td>
                     <td>
@@ -51,7 +51,7 @@
                     <td>$7,000–$8,000 per student<br>$700,000+ for 100 students</td>
                 </tr>
                 <tr>
-                    <td>4</td>
+                    <td id="rental">4</td>
                     <td>Increase Facility Rental Revenue</td>
                     <td>
                         - Expand marketing and use of school facilities for rentals (event planners)<br>
@@ -63,7 +63,7 @@
                     <td>$200,000+ annually (projected)<br>$500,000+ possible</td>
                 </tr>
                 <tr>
-                    <td>5</td>
+                    <td id="techfees">5</td>
                     <td>Increase/Mandate Tech Fees</td>
                     <td>
                         - Make tech protection fee mandatory for all students and add a summer-at-home fee for
@@ -73,7 +73,7 @@
                     </td>
                     <td>$35–$50 per student<br>$150,000–250,000</td>
                 </tr>
-                <tr>
+                <tr id="tech">
                     <td>6</td>
                     <td>Tech Contracts, Inventory & Asset Sales</td>
                     <td>
@@ -191,3 +191,24 @@
 
     </div>
 </section>
+
+<script type="module">
+    window.addEventListener('load', () => {
+        const header = document.querySelector('header')
+        const headerHeight = header ? header.offsetHeight : 0
+        if (window.location.hash) {
+            const id = window.location.hash.substring(1)
+            const anchor = document.getElementById(id)
+            if (anchor) {
+                setTimeout(() => {
+                    const rect = anchor.getBoundingClientRect()
+                    const scrollTop = window.pageYOffset || document.documentElement.scrollTop
+                    window.scrollTo({
+                        top: rect.top + scrollTop - headerHeight,
+                        behavior: 'auto'
+                    })
+                }, 60)
+            }
+        }
+    });
+</script>

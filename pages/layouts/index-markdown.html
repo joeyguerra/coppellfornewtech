@@ -6,145 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>${title}</title>
     <meta name="author" content="Joey Guerra" />
-    <style>
-        body {
-            margin: 0;
-            font-family: system-ui, sans-serif;
-            background: #f9fafb;
-            color: #111;
-        }
-
-        header {
-            background: white;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 1rem;
-        }
-
-        .nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .nav-links a {
-            margin-left: 1rem;
-            text-decoration: none;
-            color: #333;
-        }
-
-        .nav-links a:hover {
-            color: #0056b3;
-        }
-
-        .button {
-            padding: 0.5rem 1rem;
-            border: none;
-            border-radius: 5px;
-            background: #0056b3;
-            color: white;
-            font-weight: bold;
-            cursor: pointer;
-            text-decoration: none;
-        }
-
-        .button:hover {
-            background: #004095;
-        }
-
-        .hero {
-            background: #e0f0ff;
-            padding: 4rem 1rem;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
-        }
-
-        .section {
-            padding: 3rem 1rem;
-            background: white;
-        }
-
-        .section.gray {
-            background: #f0f0f0;
-        }
-
-        .section h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .section p,
-        .section li {
-            font-size: 1.1rem;
-            line-height: 1.6;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        @media (max-width: 700px) {
-            .grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        footer {
-            background: #222;
-            color: white;
-            text-align: center;
-            padding: 2rem 1rem;
-            font-size: 0.9rem;
-        }
-
-        .logo {
-            height: 40px;
-            vertical-align: middle;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 1rem;
-        }
-
-        table th {
-            background-color: #203864;
-            color: white;
-            padding: 8px;
-            text-align: left;
-        }
-
-        table td {
-            padding: 8px;
-            border: 1px solid #ddd;
-        }
-        .logo-link {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            color: #0056b3;
-        }
-    </style>
+    <link rel="stylesheet" href="/css/index.css" />
 </head>
 
 <body>
@@ -158,11 +20,17 @@
                     <strong style="margin-left: 0.5rem;">CoppellForNewTech.org</strong>
                 </a>
             </div>
-            <nav class="nav-links">
+            <button class="hamburger" id="hamburger" aria-label="Open menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="nav-links" id="navLinks">
                 <a href="/#mission">Our Story</a>
                 <a href="/#crisis">The Crisis</a>
                 <a href="/#involved">Get Involved</a>
-                <a href="/#cerckeyinsights">CERC Key Insights</a>
+                <a href="/#about">About New Tech @ Coppell</a>
+                <a href="/cerc-insights.html">CERC Key Insights</a>
             </nav>
         </div>
     </header>
@@ -187,5 +55,6 @@
     </footer>
 
 </body>
+<script src="/js/index.mjs" type="module"></script>
 
 </html>

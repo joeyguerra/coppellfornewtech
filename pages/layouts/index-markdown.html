@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>${title}</title>
+    <meta name="author" content="Joey Guerra" />
+    <style>
+        body {
+            margin: 0;
+            font-family: system-ui, sans-serif;
+            background: #f9fafb;
+            color: #111;
+        }
+
+        header {
+            background: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links a {
+            margin-left: 1rem;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .nav-links a:hover {
+            color: #0056b3;
+        }
+
+        .button {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            background: #0056b3;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .button:hover {
+            background: #004095;
+        }
+
+        .hero {
+            background: #e0f0ff;
+            padding: 4rem 1rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        .section {
+            padding: 3rem 1rem;
+            background: white;
+        }
+
+        .section.gray {
+            background: #f0f0f0;
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .section p,
+        .section li {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 700px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        footer {
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+            font-size: 0.9rem;
+        }
+
+        .logo {
+            height: 40px;
+            vertical-align: middle;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        table th {
+            background-color: #203864;
+            color: white;
+            padding: 8px;
+            text-align: left;
+        }
+
+        table td {
+            padding: 8px;
+            border: 1px solid #ddd;
+        }
+        .logo-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container nav">
+            <div>
+                <a href="/" title="CoppellForNewTech.org" class="logo-link">
+                    <img src="logo.png" alt="Logo" class="logo">
+                    <strong style="margin-left: 0.5rem;">CoppellForNewTech.org</strong>
+                </a>
+            </div>
+            <nav class="nav-links">
+                <a href="/#mission">Our Story</a>
+                <a href="/#crisis">The Crisis</a>
+                <a href="/#involved">Get Involved</a>
+                <a href="/#cerckeyinsights">CERC Key Insights</a>
+            </nav>
+        </div>
+    </header>
+    <!-- Hero -->
+    <section class="hero">
+        <h1>Stand Up for Public Education in Coppell</h1>
+        <p>Coppell ISD is closing schools. We're trying to innovate our way out of this budget crisis. For New Tech, for
+            our students, for their future.</p>
+        <a class="button" style="background: transparent; color: #0056b3; border: 2px solid #0056b3; margin-left: 1rem;"
+            href="/#mission">Read Our Story</a>
+    </section>
+    <section class="section">
+        <div class="container">
+        ${body}
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer>
+        <p>CoppellForNewTech.org • Grassroots for Public Education</p>
+        <p>Email: info@coppellfornewtech.org</p>
+        <p>© 2025 Grassroots Coppell Education Alliance</p>
+    </footer>
+
+</body>
+
+</html>

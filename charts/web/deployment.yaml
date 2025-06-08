@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: coppellfornewtech-website
-        image: local/coppellfornewtech-website:1.0.26
+        image: local/coppellfornewtech-website:1.0.30
         imagePullPolicy: IfNotPresent
         env:
         - name: PORT

@@ -28,6 +28,7 @@
             <nav class="nav-links" id="navLinks">
                 <a href="/#mission">Our Story</a>
                 <a href="/#crisis">The Crisis</a>
+                <a href="/faq.html">FAQs - New Tech Myth Busting</a>
                 <a href="/#involved">Get Involved</a>
                 <a href="/#about">About New Tech @ Coppell</a>
                 <a href="/revenue-generation-ideas.html">Revenue Generation Ideas</a>
@@ -55,5 +56,13 @@
 
 </body>
 <script src="/js/index.mjs" type="module"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script type="module" id="HotReloader">
+    import { HotReloader } from '/js/HotReloader.mjs'
+    const isProduction = window.location.hostname !== 'localhost'
+    if(!isProduction) {
+        const hotReloader = new HotReloader(window, io('/hot-reload'))
+    }
+</script>
 
 </html>

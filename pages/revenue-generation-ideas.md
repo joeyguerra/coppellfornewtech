@@ -11,9 +11,24 @@
 }
 ---
 
-# Ideas for Revenue Generation
+# Seven Ideas for Increased Revenues
 
-## 1. Transportation Fees for Intercampus Elective Travel
+## Executive Summary Table
+
+| Suggestion # | Title | Description of Idea | Potential Revenue Impact |
+|--------------|-------|---------------------|--------------------------|
+| 1 | Transportation Fees | - Charge fees for intercampus elective travel or for all bus riders<br>- Use a sliding scale for low-income students<br>- Benchmark: $370–$800/year per student | $92,500–$185,000 (shuttles only)<br>Up to $2.4M (all riders) |
+| 2 | Optimize Average Daily Attendance (ADA) | - Maximize state funding by improving absence documentation<br>- Automate reminders for missing notes<br>- Target a 1%+ increase in ADA with continued emphasis on how it closes the budget gap | $1,000,000+ per 1% ADA increase |
+| 3 | Expand & Market Open Enrollment | - Aggressively market open seats to out-of-district students as other districts are doing<br>- Target New Tech High and other campuses (this has NOT been done for NT)<br>- Each new student brings state funding | $7,000–$8,000 per student<br>$700,000+ for 100 students |
+| 4 | Increase Facility Rental Revenue | - Expand marketing and use of school facilities for rentals (event planners)<br>- Use platforms like Facilitron<br>- Adjust fee structure for nonprofits/commercial use<br>- Review and increase activity/booster club fees for use of facilities<br>- Ensure fees reflect actual costs for extracurriculars | $200,000+ annually (projected)<br>$500,000+ possible |
+| 5 | Increase/Mandate Tech Fees | - Make tech protection fee mandatory for all students and add a summer-at-home fee for elementary students (with waivers)<br>- Examine the fees other districts are charging to set a higher fee<br>- Consider even higher or tiered fees for secondary/choice programs | $35–$50 per student<br>$150,000–250,000 |
+| 6 | Tech Contracts, Inventory & Asset Sales | - Audit and renegotiate technology contracts (share licenses intradistrict) and centralize purchases and decision making<br>- Sell surplus or outdated tech and equipment<br>- Improve inventory management to reduce losses and to sell before peak depreciation and to avoid duplicative purchases | $50,000–$200,000+ (one-time and recurring) |
+| 7 | Naming Rights to Arena | - High-visibility arena suitable for corporate naming rights partnership<br>- Potential  recurring annual revenue, based on regional comparables<br>- Successful models in nearby districts (e.g., Southlake Carroll ISD, Prosper ISD) demonstrate feasibility | $100,000-250,000 for two years with potential to be recurring
+
+
+**Note: Revenue impacts are estimates and will depend on participation rates, fee structure, and administrative implementation.**
+
+## #1: Transportation Fees for Intercampus Elective Travel
 
 Coppell ISD currently provides bus transportation at no cost to students residing more than two miles from their assigned school, including those with hazardous route exceptions. It also provides intercampus shuttles at no cost to facilitate attendance in elective classes. CISD’s pay-to-ride option is currently limited, confusing for families, and underutilized, with little public data on eligibility and participation rates. The process and eligibility are not widely understood, which likely suppresses both uptake and revenue.
 
@@ -89,7 +104,7 @@ These figures provide a benchmark for what Coppell ISD might consider if it adop
 
 Can administration provide the exact number of students using intercampus transportation for electives and extracurricular shuttles after school and model the potential revenue from a mandatory fee, using both Keller ISD and Carroll ISD rates, including a scenario with reduced fees for low-income families? How does this compare to the expected savings from consolidating New Tech High @ Coppell?
 
-## 2. Optimization of Average Daily Attendance by boosting the use of the absence reporting system to maximize ADA with required documentation
+## #2: Optimization of Average Daily Attendance by boosting the use of the absence reporting system to maximize ADA with required documentation
 
 Average daily attendance (ADA) is the primary driver of state funding, and certain excused absences, such as documented medical appointments, do not count against ADA if proper documentation is provided. Optimizing our new absence reporting system could yield significant revenue gains. This is essentially "free money" from the state, provided we can maximize it.
 
@@ -133,7 +148,7 @@ According to the Texas Education Code §25.087, other absences that do not count
 Please provide a fiscal impact analysis using district attendance data and the state funding formula. 
 A 1% increase in attendance, combined with an increase in documentation for absences that do not count against ADA, would generate more than **$1,000,000** in revenue. [More than a headcount](https://coppellstudentmedia.com/124148/news/more-than-a-headcount/)
 
-## 3. Expanding and Marketing Open Enrollment (Limited or Expanded)
+## #3: Expanding and Marketing Open Enrollment (Limited or Expanded)
 
 The re-enrollment and new student application window for Limited [Open Enrollment](https://www.coppellisd.com/o/cisd/page/open-enrollment) closes on July 6, 2025, making immediate action critical for the 2025-2026 school year. It is currently limited to specific neighborhoods in Lewisville and Irving, as well as certain areas in Coppell that are not within CISD boundaries.
 
@@ -185,7 +200,7 @@ Frisco has shared some preliminary numbers, and they are impressive. Frisco had 
 
 > **Can the administration provide a timeline and action plan to immediately ramp up marketing and outreach before the July 6 open enrollment deadline? How can the PTSO help?**
 
-## 4. Increase Facility Rental Revenue (Usage and Fees)
+## #4: Increase Facility Rental Revenue (Usage and Fees)
 
 The 2024-2025 budget explicitly lists a target to increase facility rental fees by $200,000 as a revenue measure. However, the baseline (current) revenue from rentals is not detailed in the summary; has CISD been successful at achieving that target? CISD’s website states that CISD aims to allow buildings to be used as much as possible by many groups without interfering with education. Recent board discussions have included potential uses of facilities for rentals, district training, and even employee daycare. Yet, there is no public evidence of a robust marketing campaign for facility rentals; most information is found only on the district’s website.
 
@@ -217,7 +232,7 @@ The budget projects an increase of $200,000 in facility rental fees for the curr
 
 See Plano ISD and Austin ISD for fee structures and national best practices from EAB, Facilitron, and Brightly Software for models and benchmarks. 
 
-## 5. Increase Tech Fee (Overall) and Make Certain Tech Fees Mandatory (for Choice or Secondary Students)
+## #5: Increase Tech Fee (Overall) and Make Certain Tech Fees Mandatory (for Choice or Secondary Students)
 
 Coppell ISD currently charges a $35 protection plan fee, but it is not mandatory. "All elementary, middle school, CHS9, Coppell High School, and New Tech High @ Coppell parents or guardians are encouraged to pay a non-refundable $35 annual fee for the Device Protection Plan, which will be used to repair accidental damage to CISD-issued devices, including iPads, keyboards, or cases.  [This protection plan](https://www.coppellisd.com/page/device-protection-plan) applies to all students (PreK-12)..."  
 
@@ -254,7 +269,7 @@ Choice and specialty schools often charge higher or mandatory fees: Since NewTec
 
 Coppell ISD’s current $35 fee is low for what it spends on technology, and it is not mandatory, making it an outlier. Most districts are moving toward mandatory fees (or better enforcement) and are considering increases to better offset technology expenses. 
 
-## 6. Optimizing Technology Assets and Reducing Waste as a Source of Revenue, and a Means to Cut Expenses
+## #6: Optimizing Technology Assets and Reducing Waste as a Source of Revenue, and a Means to Cut Expenses
 
 Coppell ISD can achieve significant cost savings and generate additional revenue by optimizing technology asset management and contract oversight. Historical issues, such as decentralized software purchasing, underused technology, and lack of centralized inventory, have led to unnecessary expenses and missed opportunities for redistribution or resale. Implementing best practices in contract management, asset tracking, and procurement can help the district maximize every dollar spent on technology, reduce waste, and prevent duplicative purchases. Contract Lifecycle Management (CLM) software is increasingly utilized by districts to centralize, automate, and optimize contract oversight, resulting in cost savings and enhanced vendor management. Effective inventory management systems enable districts to track their assets, their condition, and their location. This allows for the identification of surplus (before it hits steep depreciation), outdated, or unused items, such as technology, equipment, or furniture, that can be resold, repurposed, or redistributed to where they are needed most.
 
@@ -290,7 +305,7 @@ Coppell ISD can achieve significant cost savings and generate additional revenue
 
 > Are there district-wide guidelines for campus leaders to request software or hardware, ensuring requests are evaluated for redundancy and alignment with district goals?
 
-## 7. Naming Rights for CHS Basketball Arena
+## #7: Naming Rights for CHS Basketball Arena
 
 The Arena’s high visibility and the wide variety of competitions and events it hosts make it a prime candidate for a corporate partnership that could generate significant, recurring revenue for CISD year after year.
 
@@ -332,18 +347,3 @@ We are fortunate to have major companies with a presence in or near Coppell, inc
 - Does CISD have a process for inventorying, redistributing, or selling unused technology and other assets to recover value or to eliminate redundancies?
 
 We’ve compiled detailed data and examples from other districts in this document.
-
-# Top Seven Ideas for Increased Revenues
-
-| Suggestion # | Title | Description of Idea | Potential Revenue Impact |
-|--------------|-------|---------------------|--------------------------|
-| 1 | Transportation Fees | - Charge fees for intercampus elective travel or for all bus riders<br>- Use a sliding scale for low-income students<br>- Benchmark: $370–$800/year per student | $92,500–$185,000 (shuttles only)<br>Up to $2.4M (all riders) |
-| 2 | Optimize Average Daily Attendance (ADA) | - Maximize state funding by improving absence documentation<br>- Automate reminders for missing notes<br>- Target a 1%+ increase in ADA with continued emphasis on how it closes the budget gap | $1,000,000+ per 1% ADA increase |
-| 3 | Expand & Market Open Enrollment | - Aggressively market open seats to out-of-district students as other districts are doing<br>- Target New Tech High and other campuses (this has NOT been done for NT)<br>- Each new student brings state funding | $7,000–$8,000 per student<br>$700,000+ for 100 students |
-| 4 | Increase Facility Rental Revenue | - Expand marketing and use of school facilities for rentals (event planners)<br>- Use platforms like Facilitron<br>- Adjust fee structure for nonprofits/commercial use<br>- Review and increase activity/booster club fees for use of facilities<br>- Ensure fees reflect actual costs for extracurriculars | $200,000+ annually (projected)<br>$500,000+ possible |
-| 5 | Increase/Mandate Tech Fees | - Make tech protection fee mandatory for all students and add a summer-at-home fee for elementary students (with waivers)<br>- Examine the fees other districts are charging to set a higher fee<br>- Consider even higher or tiered fees for secondary/choice programs | $35–$50 per student<br>$150,000–250,000 |
-| 6 | Tech Contracts, Inventory & Asset Sales | - Audit and renegotiate technology contracts (share licenses intradistrict) and centralize purchases and decision making<br>- Sell surplus or outdated tech and equipment<br>- Improve inventory management to reduce losses and to sell before peak depreciation and to avoid duplicative purchases | $50,000–$200,000+ (one-time and recurring) |
-| 7 | Naming Rights to Arena | - High-visibility arena suitable for corporate naming rights partnership<br>- Potential  recurring annual revenue, based on regional comparables<br>- Successful models in nearby districts (e.g., Southlake Carroll ISD, Prosper ISD) demonstrate feasibility | $100,000-250,000 for two years with potential to be recurring
-
-
-**Note: Revenue impacts are estimates and will depend on participation rates, fee structure, and administrative implementation.**

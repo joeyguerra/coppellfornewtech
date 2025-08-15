@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CISD Elementary School Closure Input Survey</title>
+  <style>
+    :root{
+      --bg:#f4f6fa; --card:#ffffff; --ink:#1a1a1a; --muted:#555; --accent:#007acc; --focus:#1e90ff;
+      --danger:#d9534f; --ok:#5cb85c; --warn:#f0ad4e;
+    }
+    html,body{height:100%}
+    body{margin:0;font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;background:var(--bg);color:var(--ink)}
+    .wrap{max-width:980px;margin:24px auto;padding:0 16px}
+    .card{background:var(--card);border:1px solid rgba(0,0,0,.08);border-radius:16px;box-shadow:0 4px 12px rgba(0,0,0,.08);padding:18px}
+    header h1{margin:0 0 6px 0;font-weight:800;letter-spacing:.2px}
+    header p{margin:0;color:var(--muted)}
+    h2{margin:22px 0 12px 0;font-size:1.12rem}
+    fieldset{border:1px solid rgba(0,0,0,.1);border-radius:12px;padding:14px;margin:14px 0;background:#fafafa}
+    legend{padding:0 8px;color:var(--muted)}
+    label{display:block;margin:8px 0}
+    input[type=text], input[type=number], select, textarea{
+      width:100%;background:#fff;border:1px solid rgba(0,0,0,.2);color:var(--ink);
+      padding:12px;border-radius:10px;outline:none
+    }
+    textarea{min-height:84px;resize:vertical}
+    input[type=text]:focus, input[type=number]:focus, select:focus, textarea:focus{border-color:var(--focus);box-shadow:0 0 0 3px rgba(30,144,255,.15)}
+    .grid{display:grid;gap:12px}
+    .g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    @media (max-width:720px){.g2,.g3{grid-template-columns:1fr}}
+    .row{display:flex;gap:12px;align-items:center}
+    .muted{color:var(--muted)}
+    .help{font-size:.92rem;color:var(--muted);margin-top:6px}
+    .table{width:100%;border-collapse:separate;border-spacing:0}
+    .table th,.table td{border-bottom:1px solid rgba(0,0,0,.08);padding:10px 8px;text-align:center}
+    .table th:first-child,.table td:first-child{text-align:left}
+    .badge{display:inline-block;background:rgba(0,122,204,.1);border:1px solid rgba(0,122,204,.4);padding:2px 8px;border-radius:999px;color:var(--accent);font-size:.8rem}
+    .controls{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+    button{background:#fff;border:1px solid rgba(0,0,0,.2);color:var(--ink);padding:10px 14px;border-radius:10px;cursor:pointer}
+    button:hover{border-color:var(--focus)}
+    button.primary{background:linear-gradient(180deg,#0ea5e9,#0284c7);border-color:#0ea5e9;color:#fff}
+    button.ghost{background:transparent}
+    .sum-ok{color:var(--ok)}
+    .sum-warn{color:var(--warn)}
+    .sum-bad{color:var(--danger)}
+    .notice{background:rgba(30,144,255,.08);border:1px solid rgba(30,144,255,.3);padding:10px;border-radius:10px;color:#004a80}
+
+    /* Sortable list styles */
+    .sortable{list-style:none;margin:0;padding:0}
+    .sortable li{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid rgba(0,0,0,.15);padding:12px;border-radius:10px;margin:8px 0}
+    .handle{width:36px;height:36px;min-width:36px;border-radius:8px;border:1px dashed rgba(0,0,0,.25);display:flex;align-items:center;justify-content:center;cursor:grab;background:#f4f6fa}
+    .handle:active{cursor:grabbing}
+    .dragging{opacity:.6}
+    .ghost{background:#e9f5ff;border-color:#7dc2ff}
+    .rank-chip{margin-left:auto;background:#eef7ff;border:1px solid #c9e4ff;color:#0b5cab;border-radius:999px;padding:2px 8px;font-size:.8rem}
+
+    /* Mobile touch targets */
+    @media (max-width:480px){
+      .handle{width:44px;height:44px}
+      input,textarea,button{font-size:18px}
+      .rank-chip{display:none}
+    }
+
+    @media print {
+      body{background:#fff;color:#000}
+      .card{box-shadow:none;border:1px solid #999}
+      button,.controls,.notice.sticky{display:none!important}
+      a::after{content:""}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <header>
+        <h1>CISD Elementary School Closure Input Survey</h1>
+        <p>One per breakout group. Discuss and provide your group’s consensus responses. <span class="badge">Pilot draft</span></p>
+      </header>
+      <div class="grid g2" style="margin-top:14px">
+        <label>Group # / School
+          <input id="groupSchool" type="text" placeholder="e.g., Group 3 – Town Center ES" />
+        </label>
+        <label>Facilitator
+          <input id="facilitator" type="text" placeholder="Name" />
+        </label>
+      </div>
+
+      <!-- Section 1: Rank Criteria (Drag & Drop) -->
+      <h2>Section 1 – Rank Criteria</h2>
+      <fieldset>
+        <legend>Q1. Drag to reorder (Top = Most Important)</legend>
+        <ul id="rankList" class="sortable" aria-label="Rank the criteria by dragging">
+          <li data-key="proximity"><span class="handle" aria-hidden="true">≡</span> Proximity to other schools <span class="rank-chip">Rank <strong>1</strong></span></li>
+          <li data-key="enrollment_capacity"><span class="handle" aria-hidden="true">≡</span> Current enrollment vs. capacity <span class="rank-chip">Rank <strong>2</strong></span></li>
+          <li data-key="cost_per_student"><span class="handle" aria-hidden="true">≡</span> Cost to operate per student <span class="rank-chip">Rank <strong>3</strong></span></li>
+          <li data-key="building_condition"><span class="handle" aria-hidden="true">≡</span> Building condition & repair costs <span class="rank-chip">Rank <strong>4</strong></span></li>
+          <li data-key="program_impact"><span class="handle" aria-hidden="true">≡</span> Impact on academic programs <span class="rank-chip">Rank <strong>5</strong></span></li>
+          <li data-key="transport_time"><span class="handle" aria-hidden="true">≡</span> Transportation time for affected students <span class="rank-chip">Rank <strong>6</strong></span></li>
+        </ul>
+        <div class="help">Tip: Grab the ☰ handle to drag. On mobile, press and hold briefly to start dragging.</div>
+      </fieldset>
+
+      <!-- Section 2: Rate Importance -->
+      <h2>Section 2 – Rate Importance</h2>
+      <fieldset>
+        <legend>Q2. Rate importance to <em>minimize</em> (1 = Not Important, 5 = Critical)</legend>
+        <table class="table" role="grid" aria-label="Likert ratings">
+          <thead>
+            <tr>
+              <th>Outcome</th>
+              <th>1</th><th>2</th><th>3</th><th>4</th><th>5</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Longer bus rides for students</td>
+              <td><input type="radio" name="q2_bus" value="1" /></td>
+              <td><input type="radio" name="q2_bus" value="2" /></td>
+              <td><input type="radio" name="q2_bus" value="3" /></td>
+              <td><input type="radio" name="q2_bus" value="4" /></td>
+              <td><input type="radio" name="q2_bus" value="5" /></td>
+            </tr>
+            <tr>
+              <td>Loss of neighborhood identity</td>
+              <td><input type="radio" name="q2_identity" value="1" /></td>
+              <td><input type="radio" name="q2_identity" value="2" /></td>
+              <td><input type="radio" name="q2_identity" value="3" /></td>
+              <td><input type="radio" name="q2_identity" value="4" /></td>
+              <td><input type="radio" name="q2_identity" value="5" /></td>
+            </tr>
+            <tr>
+              <td>Increase in class sizes</td>
+              <td><input type="radio" name="q2_class" value="1" /></td>
+              <td><input type="radio" name="q2_class" value="2" /></td>
+              <td><input type="radio" name="q2_class" value="3" /></td>
+              <td><input type="radio" name="q2_class" value="4" /></td>
+              <td><input type="radio" name="q2_class" value="5" /></td>
+            </tr>
+            <tr>
+              <td>Disruption to special programs</td>
+              <td><input type="radio" name="q2_programs" value="1" /></td>
+              <td><input type="radio" name="q2_programs" value="2" /></td>
+              <td><input type="radio" name="q2_programs" value="3" /></td>
+              <td><input type="radio" name="q2_programs" value="4" /></td>
+              <td><input type="radio" name="q2_programs" value="5" /></td>
+            </tr>
+            <tr>
+              <td>Loss of after-school care/enrichment</td>
+              <td><input type="radio" name="q2_after" value="1" /></td>
+              <td><input type="radio" name="q2_after" value="2" /></td>
+              <td><input type="radio" name="q2_after" value="3" /></td>
+              <td><input type="radio" name="q2_after" value="4" /></td>
+              <td><input type="radio" name="q2_after" value="5" /></td>
+            </tr>
+          </tbody>
+        </table>
+      </fieldset>
+
+      <!-- Section 3: Trade-offs -->
+      <h2>Section 3 – Trade‑offs</h2>
+      <fieldset>
+        <legend>Q3–Q5. Choose one</legend>
+        <label>Q3. Stronger reason to close a school?
+          <div class="grid g2">
+            <label><input type="radio" name="q3" value="lowest_enrollment" /> Lowest enrollment</label>
+            <label><input type="radio" name="q3" value="highest_cost_per_student" /> Highest operating cost per student</label>
+          </div>
+        </label>
+        <label>Q4. With equal enrollment, which weighs more?
+          <div class="grid g2">
+            <label><input type="radio" name="q4" value="higher_maint" /> Higher facility maintenance costs</label>
+            <label><input type="radio" name="q4" value="stronger_programs" /> Stronger community programs</label>
+          </div>
+        </label>
+        <label>Q5. Prioritize:
+          <div class="grid g2">
+            <label><input type="radio" name="q5" value="keep_newer" /> Keep newer buildings open (even if under‑enrolled)</label>
+            <label><input type="radio" name="q5" value="keep_older_walkable" /> Keep older neighborhood schools open (higher walkability)</label>
+          </div>
+        </label>
+      </fieldset>
+
+      <!-- Section 4: Community & Student Needs -->
+      <h2>Section 4 – Community & Student Needs</h2>
+      <fieldset>
+        <legend>Q6–Q8. Short answers</legend>
+        <label>Q6. 1–2 community resources or traditions that would be lost, and how the district could preserve them
+          <textarea id="q6"></textarea>
+        </label>
+        <label>Q7. If reassigned, what supports would make the transition successful?
+          <textarea id="q7"></textarea>
+        </label>
+        <label>Q8. What would make the new school feel like home within the first year?
+          <textarea id="q8"></textarea>
+        </label>
+      </fieldset>
+
+      <!-- Section 5: Weighting Factors -->
+      <h2>Section 5 – Weighting Factors</h2>
+      <fieldset>
+        <legend>Q9. Allocate exactly 100 points</legend>
+        <div class="grid g3">
+          <label class="pill">Financial savings <input type="number" min="0" max="100" step="1" class="w100" data-key="w_financial" /></label>
+          <label class="pill">Student travel distance/time <input type="number" min="0" max="100" step="1" class="w100" data-key="w_travel" /></label>
+          <label class="pill">Building condition/maintenance <input type="number" min="0" max="100" step="1" class="w100" data-key="w_building" /></label>
+          <label class="pill">Academic program continuity <input type="number" min="0" max="100" step="1" class="w100" data-key="w_program" /></label>
+          <label class="pill">Community impact <input type="number" min="0" max="100" step="1" class="w100" data-key="w_community" /></label>
+        </div>
+        <div class="row"><strong>Total:</strong> <span id="wTotal" style="min-width:42px;text-align:right">0</span> / 100 <span id="wMsg" class="help"></span></div>
+      </fieldset>
+
+      <!-- Section 6: Non‑negotiables -->
+      <h2>Section 6 – Non‑negotiables</h2>
+      <fieldset>
+        <legend>Q10. Up to 3</legend>
+        <div class="grid g3">
+          <input type="text" id="nn1" placeholder="Non‑negotiable #1" />
+          <input type="text" id="nn2" placeholder="Non‑negotiable #2" />
+          <input type="text" id="nn3" placeholder="Non‑negotiable #3" />
+        </div>
+      </fieldset>
+
+      <div class="notice sticky">This page works offline and saves your progress in your browser (local only). You can export JSON or CSV to send to the district.
+      </div>
+
+      <div class="controls">
+        <button class="primary" id="validate">Validate</button>
+        <button id="save">Save (Local)</button>
+        <button id="exportJson">Export JSON</button>
+        <button id="exportCsv">Export CSV</button>
+        <button class="ghost" onclick="window.print()">Print</button>
+        <span class="help" id="status"></span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const $ = (s, r=document)=> r.querySelector(s);
+    const $$ = (s, r=document)=> Array.from(r.querySelectorAll(s));
+
+    const stateKey = () => {
+      const gs = $('#groupSchool').value.trim() || 'unspecified';
+      return `cisd-es-survey::${gs}`;
+    };
+
+    /* ---------- Drag & Drop Sortable (pointer events) ---------- */
+    (function(){
+      const list = $('#rankList');
+      let dragEl = null, placeholder = document.createElement('li'), startIndex = -1;
+      placeholder.className = 'ghost'; placeholder.style.height = '0px'; placeholder.style.margin = '0';
+
+      function pointerDown(e){
+        const handle = e.target.closest('.handle');
+        if(!handle) return;
+        const li = handle.closest('li');
+        dragEl = li;
+        startIndex = [...list.children].indexOf(li);
+        li.classList.add('dragging');
+        li.setPointerCapture?.(e.pointerId);
+        placeholder.style.height = li.getBoundingClientRect().height + 'px';
+        li.after(placeholder);
+        document.addEventListener('pointermove', pointerMove);
+        document.addEventListener('pointerup', pointerUp, { once:true });
+        e.preventDefault();
+      }
+      function pointerMove(e){
+        if(!dragEl) return;
+        const y = e.clientY;
+        const siblings = [...list.querySelectorAll('li:not(.dragging)')];
+        let next = siblings.find(s=> y < s.getBoundingClientRect().top + s.offsetHeight/2);
+        if(next) list.insertBefore(placeholder, next); else list.appendChild(placeholder);
+      }
+      function pointerUp(e){
+        if(!dragEl) return;
+        list.insertBefore(dragEl, placeholder);
+        dragEl.classList.remove('dragging');
+        placeholder.remove();
+        dragEl = null;
+        document.removeEventListener('pointermove', pointerMove);
+        updateRankChips();
+      }
+      list.addEventListener('pointerdown', pointerDown, {passive:false});
+
+      // Keyboard support: move focused item with Ctrl/Cmd + ArrowUp/Down
+      list.addEventListener('keydown', (e)=>{
+        const li = e.target.closest('li');
+        if(!li) return;
+        const isUp = (e.key==='ArrowUp');
+        const isDown = (e.key==='ArrowDown');
+        if((e.ctrlKey||e.metaKey) && (isUp||isDown)){
+          e.preventDefault();
+          if(isUp && li.previousElementSibling) list.insertBefore(li, li.previousElementSibling);
+          if(isDown && li.nextElementSibling) list.insertBefore(li.nextElementSibling, li);
+          updateRankChips();
+        }
+      });
+
+      function updateRankChips(){
+        [...list.children].forEach((li,i)=>{
+          const chip = li.querySelector('.rank-chip strong');
+          if(chip) chip.textContent = String(i+1);
+        });
+      }
+      updateRankChips();
+    })();
+
+    // Weighting total
+    function updateWeights(){
+      const total = $$('.w100').reduce((s,i)=> s + (+i.value||0), 0);
+      $('#wTotal').textContent = total;
+      const m = $('#wMsg');
+      m.textContent = total===100? 'Perfect.': (total<100? 'Add more points.': 'Remove some points.');
+      m.className = 'help ' + (total===100? 'sum-ok' : total<100? 'sum-warn':'sum-bad');
+      return total===100;
+    }
+    $$('.w100').forEach(i=> i.addEventListener('input', updateWeights));
+
+    function collect(){
+      const ranks = {};
+      [...$('#rankList').children].forEach((li, idx)=>{ ranks[li.dataset.key] = idx+1; });
+      const data = {
+        meta:{
+          groupSchool: $('#groupSchool').value.trim(),
+          facilitator: $('#facilitator').value.trim(),
+          timestamp: new Date().toISOString()
+        },
+        q1_ranks: ranks,
+        q2_ratings: {
+          bus: +($('input[name=q2_bus]:checked')?.value||0),
+          identity: +($('input[name=q2_identity]:checked')?.value||0),
+          class: +($('input[name=q2_class]:checked')?.value||0),
+          programs: +($('input[name=q2_programs]:checked')?.value||0),
+          after: +($('input[name=q2_after]:checked')?.value||0),
+        },
+        q3_trade: $('input[name=q3]:checked')?.value||'',
+        q4_trade: $('input[name=q4]:checked')?.value||'',
+        q5_trade: $('input[name=q5]:checked')?.value||'',
+        q6: $('#q6').value.trim(),
+        q7: $('#q7').value.trim(),
+        q8: $('#q8').value.trim(),
+        q9_weights: Object.fromEntries($$('.w100').map(i=> [i.dataset.key, i.value? +i.value : 0])),
+        q10_nonneg: [$('#nn1').value.trim(), $('#nn2').value.trim(), $('#nn3').value.trim()].filter(Boolean)
+      };
+      return data;
+    }
+
+    function validateAll(){
+      const weightsOk = updateWeights();
+      const metaOk = $('#groupSchool').value.trim().length>0 && $('#facilitator').value.trim().length>0;
+      let issues = [];
+      if(!metaOk) issues.push('Please fill Group/School and Facilitator.');
+      if(!weightsOk) issues.push('Weights must total exactly 100.');
+      const s = $('#status');
+      if(issues.length){ s.textContent = issues.join(' '); s.style.color='var(--warn)'; return false; }
+      s.textContent = 'Looks good.'; s.style.color='var(--ok)';
+      return true;
+    }
+
+    $('#validate').addEventListener('click', ()=> validateAll());
+
+    // Local save/load
+    $('#save').addEventListener('click', ()=>{
+      if(!validateAll()) return;
+      localStorage.setItem(stateKey(), JSON.stringify(collect()));
+      const s=$('#status'); s.textContent='Saved locally.'; s.style.color='var(--ok)';
+    });
+
+    function download(filename, text, mime){
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(new Blob([text], {type:mime}));
+      a.download = filename; a.click(); URL.revokeObjectURL(a.href);
+    }
+
+    $('#exportJson').addEventListener('click', ()=>{
+      if(!validateAll()) return;
+      const data = collect();
+      const name = (data.meta.groupSchool||'group').replace(/[^a-z0-9]+/gi,'-').replace(/^-+|-+$/g,'').toLowerCase();
+      download(`cisd-es-survey-${name||'response'}.json`, JSON.stringify(data, null, 2), 'application/json');
+    });
+
+    function toCsv(obj){
+      // Flatten for a single-row CSV export
+      const flat = {
+        groupSchool: obj.meta.groupSchool,
+        facilitator: obj.meta.facilitator,
+        timestamp: obj.meta.timestamp,
+        // Q1 ranks (by position)
+        rank_proximity: obj.q1_ranks.proximity,
+        rank_enrollment_capacity: obj.q1_ranks.enrollment_capacity,
+        rank_cost_per_student: obj.q1_ranks.cost_per_student,
+        rank_building_condition: obj.q1_ranks.building_condition,
+        rank_program_impact: obj.q1_ranks.program_impact,
+        rank_transport_time: obj.q1_ranks.transport_time,
+        // Q2
+        rate_bus: obj.q2_ratings.bus,
+        rate_identity: obj.q2_ratings.identity,
+        rate_class: obj.q2_ratings.class,
+        rate_programs: obj.q2_ratings.programs,
+        rate_after: obj.q2_ratings.after,
+        // Q3–Q5
+        trade_q3: obj.q3_trade,
+        trade_q4: obj.q4_trade,
+        trade_q5: obj.q5_trade,
+        // Q6–Q8
+        q6: obj.q6.replaceAll('\\n',' '),
+        q7: obj.q7.replaceAll('\\n',' '),
+        q8: obj.q8.replaceAll('\\n',' '),
+        // Q9
+        w_financial: obj.q9_weights.w_financial,
+        w_travel: obj.q9_weights.w_travel,
+        w_building: obj.q9_weights.w_building,
+        w_program: obj.q9_weights.w_program,
+        w_community: obj.q9_weights.w_community,
+        // Q10
+        nonneg_1: obj.q10_nonneg[0]||'',
+        nonneg_2: obj.q10_nonneg[1]||'',
+        nonneg_3: obj.q10_nonneg[2]||''
+      };
+      const headers = Object.keys(flat);
+      const values = headers.map(k=> '"'+String(flat[k]??'').replaceAll('"','""')+'"');
+      return headers.join(',') + '\\n' + values.join(',') + '\\n';
+    }
+
+    $('#exportCsv').addEventListener('click', ()=>{
+      if(!validateAll()) return;
+      const data = collect();
+      const name = (data.meta.groupSchool||'group').replace(/[^a-z0-9]+/gi,'-').replace(/^-+|-+$/g,'').toLowerCase();
+      const csv = toCsv(data);
+      download(`cisd-es-survey-${name||'response'}.csv`, csv, 'text/csv');
+    });
+
+    // Attempt restore last saved for convenience
+    window.addEventListener('DOMContentLoaded', ()=>{
+      // any existing localStorage key matching prefix
+      const keys = Object.keys(localStorage).filter(k=>k.startsWith('cisd-es-survey::'));
+      if(keys.length){
+        try{
+          const raw = localStorage.getItem(keys[keys.length-1]);
+          if(raw){
+            const d = JSON.parse(raw);
+            $('#groupSchool').value = d.meta.groupSchool||'';
+            $('#facilitator').value = d.meta.facilitator||'';
+
+            // restore ranks by ordering children
+            const order = ['proximity','enrollment_capacity','cost_per_student','building_condition','program_impact','transport_time'];
+            const list = $('#rankList');
+            const items = Object.fromEntries([...list.children].map(li=>[li.dataset.key, li]));
+            order.sort((a,b)=> (d.q1_ranks?.[a]||0) - (d.q1_ranks?.[b]||0));
+            order.forEach(k=>{ if(items[k]) list.appendChild(items[k]); });
+            // update rank chips
+            [...list.children].forEach((li,i)=>{ li.querySelector('.rank-chip strong').textContent = String(i+1); });
+
+            // q2
+            if(d.q2_ratings){
+              const map = {q2_bus:'bus', q2_identity:'identity', q2_class:'class', q2_programs:'programs', q2_after:'after'};
+              Object.entries(map).forEach(([name,key])=>{
+                const v = d.q2_ratings[key];
+                if(v){ const el = $(`input[name=${name}][value="${v}"]`); if(el) el.checked = true; }
+              });
+            }
+            // q3–q5
+            if(d.q3_trade){ const el = $(`input[name=q3][value="${d.q3_trade}"]`); if(el) el.checked=true; }
+            if(d.q4_trade){ const el = $(`input[name=q4][value="${d.q4_trade}"]`); if(el) el.checked=true; }
+            if(d.q5_trade){ const el = $(`input[name=q5][value="${d.q5_trade}"]`); if(el) el.checked=true; }
+            // q6–q8
+            $('#q6').value = d.q6||''; $('#q7').value = d.q7||''; $('#q8').value = d.q8||'';
+            // weights
+            $$('.w100').forEach(i=>{ i.value = d.q9_weights?.[i.dataset.key] ?? 0; });
+            updateWeights();
+            // non-neg
+            $('#nn1').value = d.q10_nonneg?.[0]||'';
+            $('#nn2').value = d.q10_nonneg?.[1]||'';
+            $('#nn3').value = d.q10_nonneg?.[2]||'';
+          }
+        }catch(e){ /* ignore */ }
+      }
+    });
+  </script>
+
+<script src="/socket.io/socket.io.js"></script>
+<script type="module" id="HotReloader">
+    import { HotReloader } from '/js/HotReloader.mjs'
+    const isProduction = window.location.hostname !== 'localhost'
+    if(!isProduction) {
+        const hotReloader = new HotReloader(window, io('/hot-reload'))
+    }
+</script>
+
+</body>
+</html>

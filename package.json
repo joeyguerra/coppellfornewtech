@@ -1,6 +1,6 @@
 {
   "name": "coppellfornewtech",
-  "version": "1.0.40",
+  "version": "1.0.53",
   "main": "index.mjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,7 +9,7 @@
     "docker-build": "./docker-build.sh",
     "push": "node --run build && node --run docker-build && node --run k3d-deploy",
     "build": "node server.mjs --execute",
-    "k3d-deploy": "kubectl config use-context k3d-local && kubectl apply -f charts/web/deployment.yaml -n default"
+    "k3d-deploy": "kubectl config use-context ${KUBE_CONTEXT:-k3s-local} && kubectl apply -f charts/web/deployment.yaml -n ${KUBE_NAMESPACE:-default}"
   },
   "author": "",
   "license": "ISC",

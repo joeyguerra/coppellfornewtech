@@ -21,7 +21,7 @@ jobs:
         SHA=$(git rev-parse --short HEAD)
         docker build -t ${REGISTRY_HOST}/coppellfornewtech-website:${SHA} .
         docker push ${REGISTRY_HOST}/coppellfornewtech-website:${SHA}
-        DIGEST=$(curl -sI -H "Accept: application/vnd.docker.distribution.manifest.v2+json" \
+        DIGEST=$(curl -sI -H "Accept: application/vnd.oci.image.index.v1+json" \
           "http://${REGISTRY_HOST}/v2/coppellfornewtech-website/manifests/${SHA}" \
           | grep -i '^docker-content-digest:' | awk '{print $2}' | tr -d '\r')
         case "$DIGEST" in sha256:*) ;; *) echo "no digest for coppellfornewtech-website:${SHA}"; exit 1;; esac

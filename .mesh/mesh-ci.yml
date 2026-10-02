@@ -15,11 +15,16 @@ jobs:
     mode: shell
     commands:
       - |
+        set -e
+        rm -f /tmp/digest-coppellfornewtech
         docker system prune -f
         SHA=$(git rev-parse --short HEAD)
         docker build -t ${REGISTRY_HOST}/coppellfornewtech-website:${SHA} .
         docker push ${REGISTRY_HOST}/coppellfornewtech-website:${SHA}
-        DIGEST=$(docker image inspect --format '{{index .RepoDigests 0}}' "${REGISTRY_HOST}/coppellfornewtech-website:${SHA}" | sed 's/.*@//')
+        DIGEST=$(curl -sI -H "Accept: application/vnd.docker.distribution.manifest.v2+json" \
+          "http://${REGISTRY_HOST}/v2/coppellfornewtech-website/manifests/${SHA}" \
+          | grep -i '^docker-content-digest:' | awk '{print $2}' | tr -d '\r')
+        case "$DIGEST" in sha256:*) ;; *) echo "no digest for coppellfornewtech-website:${SHA}"; exit 1;; esac
         echo "${DIGEST}" > /tmp/digest-coppellfornewtech
         docker system prune -f
 

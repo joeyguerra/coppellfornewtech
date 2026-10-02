@@ -20,10 +20,8 @@ jobs:
         docker system prune -f || true
         SHA=$(git rev-parse --short HEAD)
         docker build -t ${REGISTRY_HOST}/coppellfornewtech-website:${SHA} .
-        docker push ${REGISTRY_HOST}/coppellfornewtech-website:${SHA}
-        DIGEST=$(curl -sI -H "Accept: application/vnd.oci.image.index.v1+json" \
-          "http://${REGISTRY_HOST}/v2/coppellfornewtech-website/manifests/${SHA}" \
-          | grep -i '^docker-content-digest:' | awk '{print $2}' | tr -d '\r')
+        PUSH=$(docker push ${REGISTRY_HOST}/coppellfornewtech-website:${SHA} 2>&1); echo "$PUSH"
+        DIGEST=$(echo "$PUSH" | grep "${SHA}: digest:" | grep -o 'sha256:[a-f0-9]\{64\}')
         case "$DIGEST" in sha256:*) ;; *) echo "no digest for coppellfornewtech-website:${SHA}"; exit 1;; esac
         echo "${DIGEST}" > /tmp/digest-coppellfornewtech
         docker system prune -f || true
